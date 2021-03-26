@@ -16,9 +16,9 @@ def regexp_test(module):
                     _repl = getattr(module, regexp + '_REPL')
                 if method == MATCH:
                     for t in matches:
-                        self.assertTrue(not not _regexp.match(t))
+                        self.assertTrue(not not _regexp.match(t), t)
                     for t in not_matches:
-                        self.assertFalse(not not _regexp.match(t))
+                        self.assertFalse(not not _regexp.match(t), t)
                 elif method == SEARCH:
                     for (k, v) in matches.items():
                         self.assertEqual(v, _regexp.search(k).group())
